@@ -1,28 +1,20 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import HomeScreen from './Screens/HomeScreen';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import HomeScreen from "./screens/Home";
-import StartMapScreen from "./screens/StarMap";
-import DailyPicScreen from "./screens/DailyPic";
-import SpaceCraftScreen from "./screens/SpaceCraft";
-
-const Stack = createStackNavigator();
-
-function App() {
+import ISSLoaction from './Screens/ISSLocation';
+import MeteorScreen from './Screens/MeteorScreen';
+const stack=createStackNavigator()
+function App(){
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" screenOptions={{
-        headerShown: false
-      }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="StarMap" component={StartMapScreen} />
-        <Stack.Screen name="DailyPic" component={DailyPicScreen} />
-        <Stack.Screen name="SpaceCraft" component={SpaceCraftScreen} />
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="ISS" component={ISSLocation}/>
+        <Stack.Screen name="Meteors" component={MeteorScreen}/>
       </Stack.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
   );
 }
-
 export default App;
